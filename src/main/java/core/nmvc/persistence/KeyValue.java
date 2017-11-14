@@ -1,11 +1,8 @@
 package core.nmvc.persistence;
 
-public interface KeyValue extends Comparable<Object>{
+public interface KeyValue extends Comparable<KeyValue>{
 	
 	public Object getKeyObject();
 	public int getColumnIndex();
-	
-	default public int compareTo(KeyValue k) {
-		return 0;
-	}
+
 }

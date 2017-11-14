@@ -20,14 +20,19 @@ public class Value implements KeyValue{
 		return this.columnIndex;
 	}
 	
-	@Override
-	public int compareTo(Object o) {
-		return 0;
-	}
 	
 	@Override
 	public String toString() {
 		return String.format("value object = %s order in column = %d", this.columnValue instanceof String ? this.columnValue.toString() : this.columnValue.getClass().getName(), this.columnIndex);
+	}
+	
+	@Override
+	public int compareTo(KeyValue o) {
+		Value v = o instanceof Value ? (Value) o : null;
+		if (v == null) {
+			return -1;
+		}
+		return this.columnIndex - v.getColumnIndex();
 	}
 
 }
